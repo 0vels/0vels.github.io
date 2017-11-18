@@ -1,0 +1,710 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="RHEL/CentOS/Fedora各种源(EPEL,Remi,RPMForge,RPMFusion)配置 CentOS 默认自带 CentOS-Base.repo 源, 但官方源中去除了很多有版权争议的软件, 而且安装的软件也不是最新的稳定版.Fedora 自带的源中也找不到很多多媒体软件, 如果需要安装, 必需先添加其他源, 如 RPMFusion 和 RPMForge 等第三方软件库.下面我">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EPEL">
+<meta property="og:url" content="http://yoursite.com/2017/07/24/EPEL/index.html">
+<meta property="og:site_name" content="ovels">
+<meta property="og:description" content="RHEL/CentOS/Fedora各种源(EPEL,Remi,RPMForge,RPMFusion)配置 CentOS 默认自带 CentOS-Base.repo 源, 但官方源中去除了很多有版权争议的软件, 而且安装的软件也不是最新的稳定版.Fedora 自带的源中也找不到很多多媒体软件, 如果需要安装, 必需先添加其他源, 如 RPMFusion 和 RPMForge 等第三方软件库.下面我">
+<meta property="og:updated_time" content="2017-07-24T08:35:35.127Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EPEL">
+<meta name="twitter:description" content="RHEL/CentOS/Fedora各种源(EPEL,Remi,RPMForge,RPMFusion)配置 CentOS 默认自带 CentOS-Base.repo 源, 但官方源中去除了很多有版权争议的软件, 而且安装的软件也不是最新的稳定版.Fedora 自带的源中也找不到很多多媒体软件, 如果需要安装, 必需先添加其他源, 如 RPMFusion 和 RPMForge 等第三方软件库.下面我">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/24/EPEL/"/>
+
+
+
+
+
+  <title>EPEL | ovels</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-102228929-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ovels</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">github blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-insview">
+          <a href="/insview/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            insview
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/EPEL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/9482683?v=4&u=ba6abd0b291e4ebd6c3593fd95438bbfbc6d4f1d&s=400">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ovels">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">EPEL</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T16:30:04+08:00">
+                2017-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>RHEL/CentOS/Fedora各种源(EPEL,Remi,RPMForge,RPMFusion)配置</p>
+<p>CentOS 默认自带 CentOS-Base.repo 源, 但官方源中去除了很多有版权争议的软件, 而且安装的软件也不是最新的稳定版.<br>Fedora 自带的源中也找不到很多多媒体软件, 如果需要安装, 必需先添加其他源, 如 RPMFusion 和 RPMForge 等第三方软件库.<br>下面我们介绍各种第三方软件库, 以下软件库适用于与 RHEL 完全兼容的 Linux 发行版, 如 CentOS, Fedora, Scientific Linux. Scientific Linux 大家可能有点陌生, 它与 CentOS 类似, 是 RedHat Linux 的克隆版.<br>yum –enablerepo=rpmforge info aria2<br>yum –enablerepo=rpmforge install aria2<br> <a id="more"></a><br>1、EPEL源<br>EPEL, 即 Extra Packages for Enterprise Linux, 是由 Fedora 社区创建维护, 为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供高质量软件包的项目.<br>EPEL中含有大量的软件, 对官方标准源是一个很好的补充。<br>“EPEL (Extra Packages for Enterprise Linux ) is a Fedora Special Interest Group that creates, maintains, and manages a high quality set of additional packages for Enterprise Linux, including, but not limited to, Red Hat Enterprise Linux (RHEL), CentOS and Scientific Linux (SL).”<br>wiki: <a href="http://fedoraproject.org/wiki/EPEL" target="_blank" rel="external">http://fedoraproject.org/wiki/EPEL</a><br>Fedora EPEL 下载：<a href="http://mirrors.fedoraproject.org/publiclist/EPEL/" target="_blank" rel="external">http://mirrors.fedoraproject.org/publiclist/EPEL/</a><br>EPEL 下载地址：<a href="http://download.fedora.redhat.com/pub/epel/" target="_blank" rel="external">http://download.fedora.redhat.com/pub/epel/</a><br>请针对不同的版本下载相应的包.<br>例如 CentOS7 添加阿里云的EPEL源<br>yum localinstall –nogpgcheck <a href="http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm" target="_blank" rel="external">http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</a><br>或者<br>rpm -vih <a href="http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm" target="_blank" rel="external">http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm</a><br>或者<br>wget <a href="http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm" target="_blank" rel="external">http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm</a><br>rpm -vih epel-release-7-2.noarch.rpm</p>
+<p>2、Remi源<br>Remi 源大家或许很少听说， 但是我们强烈推荐, 尤其对于不想编译最新版的 linux 使用者, 因为 Remi 源中的软件几乎都是最新稳定版.<br>或许您会怀疑稳定不?<br>放心吧, 这些都是 Linux 骨灰级的玩家编译好放进源里的, 他们对于系统环境和软件编译参数的熟悉程度毋庸置疑.<br>Remi下载地址 : <a href="http://rpms.famillecollet.com/" target="_blank" rel="external">http://rpms.famillecollet.com/</a><br>您也需要针对不同的版本号下载.<br>例如 CentOS 7添加官方的 Remi 源<br>yum localinstall –nogpgcheck <a href="http://rpms.famillecollet.com/enterprise/remi-release-7.rpm" target="_blank" rel="external">http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</a><br>或者<br>rpm -ivh <a href="http://rpms.famillecollet.com/enterprise/remi-release-7.rpm" target="_blank" rel="external">http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</a><br>或者<br>wget <a href="http://rpms.famillecollet.com/enterprise/remi-release-7.rpm" target="_blank" rel="external">http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</a><br>rpm -ivh remi-release-7.rp</p>
+<p>3、RPMForge源<br>RPMForge 是 CentOS 系统下的软件仓库， 拥有 4000 多种的软件包, 被 CentOS 社区认为是最安全也是最稳定的一个软件仓库.<br>RPMForge官方网站: <a href="http://repoforge.org/" target="_blank" rel="external">http://repoforge.org/</a><br>Github: <a href="https://github.com/repoforge" target="_blank" rel="external">https://github.com/repoforge</a><br>RPMForge下载地址：<a href="http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/" target="_blank" rel="external">http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/</a><br>例如CentOS6.5添加官方的RPMForge源<br>yum localinstall –nogpgcheck <a href="http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm" target="_blank" rel="external">http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm</a><br>CentOS 7.0添加官方的RPMForge源<br>yum localinstall –nogpgcheck <a href="http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm" target="_blank" rel="external">http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm</a><br>或者<br>rpm -ivh <a href="http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm" target="_blank" rel="external">http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm</a><br>或者<br>wget <a href="http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm" target="_blank" rel="external">http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm</a><br>rpm -ivh rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm</p>
+<p>4、RPMFusion源<br>如果您现在正在使用Fedora 15， 对 RPMFusion一定不陌生吧， 各种音频软件如 MPlayer 在标准源中是没有的， 一般先安装 RPMFusion源, 之后就可以放便地 yum install 各种需要的软件啦。<br>CentOS 官方说 RPMFusion 软件库里面的软件稳定性不如rpmforge<br>RPMFusion 官网 : <a href="http://rpmfusion.org/" target="_blank" rel="external">http://rpmfusion.org/</a><br>包下载 <a href="http://download1.rpmfusion.org" target="_blank" rel="external">http://download1.rpmfusion.org</a><br>包括两个包, free 和 non_free<br>注意 : 在安装 RPMFusion源之前需要先安装 epel-release</p>
+<p>#FREE<br>yum localinstall <a href="http://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm" target="_blank" rel="external">http://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm</a></p>
+<p>#NON_FREE<br>yum localinstall <a href="http://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm" target="_blank" rel="external">http://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm</a><br>或者</p>
+<p>#FREE<br>rpm -ivh <a href="http://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm" target="_blank" rel="external">http://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm</a></p>
+<p>#NONFREE<br>rpm -ivh <a href="http://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm" target="_blank" rel="external">http://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm</a><br>或者</p>
+<p>#FREE<br>wget <a href="http://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm" target="_blank" rel="external">http://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm</a><br>rpm -ivh rpmfusion-free-release-7.noarch.rpm</p>
+<p>#NON_FREE<br>wget <a href="http://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm" target="_blank" rel="external">http://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm</a><br>rpm -ivh rpmfusion-nonfree-release-7.noarch.rpm<br>其他版本请详见 : <a href="http://rpmfusion.org/Configuration" target="_blank" rel="external">http://rpmfusion.org/Configuration</a></p>
+<p>5、为各种源添加优先级别<br>以上源对 CentOS 等系统完全兼容, 但各软件库之间并不能保证完全兼容没有冲突.<br>5.1、安装yum-priorities`插件<br>如果您需要使用以上源, 您需要安装 yum-priorities插件<br>yum install yum-plugin-priorities<br>安装完后查看配置信息<br>vim /etc/yum/pluginconf.d/priorities.conf<br>enabled = 1（可用）/0（不可用）<br>5.2、设置源的优先级<br>安装 yum-priorities 插件后, 您可以给各个源设置优先级priority.<br>一般设置官方标准源优先级为 1, 最高, 第三方推荐 &gt;10<br>编辑 /etc/yum.repos.d/目录下的*.repo 文件来设置优先级。<br>参数为：<br>priority=N   # N的值为1-99<br>数字越低优先级越高，数字越大优先级越低，安装包选择优先级高的开始安装。<br>推荐的设置为：<br>[base], [addons], [updates], [extras] … priority=1<br>[centosplus],[contrib] … priority=2<br>Third Party Repos such as rpmforge … priority=N   (where N is &gt; 10 and based on your preference)<br>5.3、解决冲突<br>特殊情况 : 但在不同优先级的源中都含有同一个包时, 它的行为可能就不是我们所需要的.<br>例如, 在 base 源中有个包 : abc-2.2.0.x86_64.rpm, base 是最高优先级. 在其他的优先级中也有许多 abc 包, 如果你想安装 abc-2.1.0-x86_64.rpm, 通过命令<br>yum install abc-2.1.0<br>就会出现下面的提示<br>xx packages excluded due to repository priority protections<br>并且找不到所需要的包，这是因为在高优先级源中存在的包，会将其他低优先级中的包屏蔽掉，因此无法从低优先级的源中安装所需要的包。<br>修改priorities的配置文件是/etc/yum/pluginconf.d/priorities.conf<br>其内容为:<br>[main]<br>enabled=0   # 0禁用 1启用<br>默认是1;设置enabled = 0, 这样就可以禁用priorities插&gt;件。从而能够安装任意源上的包。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/13/HearthStone/" rel="next" title="HearthStone">
+                <i class="fa fa-chevron-left"></i> HearthStone
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/17/Bojack-Horseman/" rel="prev" title="Bojack.Horseman">
+                Bojack.Horseman <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/9482683?v=4&u=ba6abd0b291e4ebd6c3593fd95438bbfbc6d4f1d&s=400"
+               alt="Wang" />
+          <p class="site-author-name" itemprop="name">Wang</p>
+           
+              <p class="site-description motion-element" itemprop="description">start from zero</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/0vels" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
