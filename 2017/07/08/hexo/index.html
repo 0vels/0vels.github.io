@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/08/hexo/index.html">
 <meta property="og:site_name" content="ovels">
 <meta property="og:description" content="1234&amp;lt;!-- more --&amp;gt; 阅读全文 手动进行截断“```python```”插入代码 1hexo g&amp;amp;&amp;amp;hexo d">
-<meta property="og:updated_time" content="2017-07-09T10:08:46.720Z">
+<meta property="og:updated_time" content="2017-11-19T12:37:56.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HEXO博客搭建笔记">
 <meta name="twitter:description" content="1234&amp;lt;!-- more --&amp;gt; 阅读全文 手动进行截断“```python```”插入代码 1hexo g&amp;amp;&amp;amp;hexo d">
@@ -350,6 +350,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/08/hexo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/08/hexo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -374,6 +385,9 @@
         <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- more --&gt; 阅读全文 手动进行截断</div><div class="line"></div><div class="line">“```python</div><div class="line">```”插入代码</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g&amp;&amp;hexo d</div></pre></td></tr></table></figure>
 <a id="more"></a>
+<p>改了一下github的名字，结果hexo d命令失败，先让登录，结果怎么都是登录失败，遇到这个问题要改hexo-deployer-git里面的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git<span class="meta">@github</span>.com:username/username.github.io.git</div></pre></td></tr></table></figure></p>
+<p>问题如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Logon failed, use ctrl+c to cancel basic credential prompt.</div><div class="line">bash: /dev/tty: No such device or address</div><div class="line">error: <span class="function">failed to execute prompt <span class="title">script</span> <span class="params">(exit code <span class="number">1</span>)</span></span></div><div class="line">fatal: could not read Username <span class="keyword">for</span> 'https:<span class="comment">//github.com/': Invalid argument</span></div><div class="line">FATAL Something's wrong. Maybe you can find the solution here: http:<span class="comment">//hexo.io/docs/troubleshooting.html</span></div><div class="line">Error: Logon failed, use ctrl+c to cancel basic credential prompt.</div><div class="line">bash: /dev/tty: No such device or address</div><div class="line">error: failed to execute prompt <span class="title">script</span> <span class="params">(exit code <span class="number">1</span>)</span></div><div class="line">fatal: could not read Username <span class="keyword">for</span> 'https:<span class="comment">//github.com/': Invalid argument</span></div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -453,6 +467,13 @@
           
   <div class="comments" id="comments">
     
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
   </div>
 
 
@@ -501,7 +522,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -526,7 +547,7 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/0vels" target="_blank" title="GitHub">
+                <a href="https://github.com/ovels" target="_blank" title="GitHub">
                   
                     <i class="fa fa-fw fa-github"></i>
                   
@@ -678,6 +699,26 @@
 
   
 
+    
+      <script id="dsq-count-scr" src="https://ovels.disqus.com.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/07/08/hexo/';
+          this.page.identifier = '2017/07/08/hexo/';
+          this.page.title = 'HEXO博客搭建笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ovels.disqus.com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -690,10 +731,6 @@
   
 
 
-
-
-
-  
 
 
 
