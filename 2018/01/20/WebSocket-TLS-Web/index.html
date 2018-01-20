@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="picture," />
+  <meta name="keywords" content="v2ray," />
 
 
 
@@ -93,16 +93,17 @@
 
 
 
-<meta name="keywords" content="picture">
+<meta name="description" content="0.WebSocket+TLS+Web这里是个人网站配置HTTPS笔记：)">
+<meta name="keywords" content="v2ray">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bojack.Horseman">
-<meta property="og:url" content="http://yoursite.com/2017/09/17/Bojack-Horseman/index.html">
+<meta property="og:title" content="WebSocket+TLS+Web">
+<meta property="og:url" content="http://yoursite.com/2018/01/20/WebSocket-TLS-Web/index.html">
 <meta property="og:site_name" content="ovels">
-<meta property="og:image" content="http://ovokw4elv.bkt.clouddn.com/bh1.png">
-<meta property="og:updated_time" content="2017-09-18T16:01:34.077Z">
+<meta property="og:description" content="0.WebSocket+TLS+Web这里是个人网站配置HTTPS笔记：)">
+<meta property="og:updated_time" content="2018-01-20T07:16:51.835Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bojack.Horseman">
-<meta name="twitter:image" content="http://ovokw4elv.bkt.clouddn.com/bh1.png">
+<meta name="twitter:title" content="WebSocket+TLS+Web">
+<meta name="twitter:description" content="0.WebSocket+TLS+Web这里是个人网站配置HTTPS笔记：)">
 
 
 
@@ -130,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/17/Bojack-Horseman/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/20/WebSocket-TLS-Web/"/>
 
 
 
 
 
-  <title>Bojack.Horseman | ovels</title>
+  <title>WebSocket+TLS+Web | ovels</title>
   
 
 
@@ -294,7 +295,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/17/Bojack-Horseman/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/WebSocket-TLS-Web/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang">
@@ -311,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Bojack.Horseman</h1>
+          <h1 class="post-title" itemprop="name headline">WebSocket+TLS+Web</h1>
         
 
         <div class="post-meta">
@@ -323,8 +324,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T10:56:27+08:00">
-                2017-09-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T15:08:09+08:00">
+                2018-01-20
               </time>
             
 
@@ -342,9 +343,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/09/17/Bojack-Horseman/#comments" itemprop="discussionUrl">
+                <a href="/2018/01/20/WebSocket-TLS-Web/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/09/17/Bojack-Horseman/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/01/20/WebSocket-TLS-Web/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -369,9 +370,18 @@
       
 
       
-        <a id="more"></a>
-<p><img src="http://ovokw4elv.bkt.clouddn.com/bh1.png" alt="&quot;马男波杰克&quot;"></p>
-
+        <h1 id="0-WebSocket-TLS-Web"><a href="#0-WebSocket-TLS-Web" class="headerlink" title="0.WebSocket+TLS+Web"></a>0.WebSocket+TLS+Web</h1><p>这里是个人网站配置HTTPS笔记：)</p>
+<a id="more"></a>
+<h1 id="1-配置"><a href="#1-配置" class="headerlink" title="1.配置"></a>1.配置</h1><p>首先要准备好启用了HTTPS的nginx，然后本地客户端和nginx使用webSocket协议进行连接，nginx监听443端口，将收到的v2ray的数据转发到v2ray进行处理。</p>
+<h2 id="1-1-证书生成"><a href="#1-1-证书生成" class="headerlink" title="1.1 证书生成"></a>1.1 证书生成</h2><p>在生成证书之前当然要先注册一个域名。下面简单介绍三种生成证书的方式：</p>
+<p>1.使用acme.sh，具体步骤请看<a href="acme.sh">acme.sh</a></p>
+<p>2.安装宝塔面板，生成ssl证书</p>
+<p>3.在<a href="sslforfree.com">sslforfree.com</a>生成证书</p>
+<p>以上三种方式都是生成免费的Let’s Encrypt证书，本质上没有任何区别。</p>
+<h2 id="1-2-服务器配置"><a href="#1-2-服务器配置" class="headerlink" title="1.2 服务器配置"></a>1.2 服务器配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;inbound&quot;: &#123;</div><div class="line">        &quot;port&quot;: 10000,</div><div class="line">        &quot;listen&quot;: &quot;127.0.0.1&quot;, //只监听 127.0.0.1，避免除本机外的机器探测到开放了 10000 端口</div><div class="line">        &quot;protocol&quot;: &quot;vmess&quot;,</div><div class="line">        &quot;settings&quot;: &#123;</div><div class="line">            &quot;clients&quot;: [</div><div class="line">                &#123;</div><div class="line">                    &quot;id&quot;: &quot;b831381d-6324-4d53-ad4f-8cda48b30811&quot;, //改成自己生成的UUID</div><div class="line">                    &quot;alterId&quot;: 64</div><div class="line">                &#125;</div><div class="line">            ]</div><div class="line">        &#125;,</div><div class="line">        &quot;streamSettings&quot;: &#123;</div><div class="line">            &quot;network&quot;: &quot;ws&quot;,</div><div class="line">            &quot;wsSettings&quot;: &#123;</div><div class="line">                &quot;path&quot;: &quot;/ray&quot;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    &quot;outbound&quot;: &#123;</div><div class="line">        &quot;protocol&quot;: &quot;freedom&quot;,</div><div class="line">        &quot;settings&quot;: &#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="1-3-Nginx-配置"><a href="#1-3-Nginx-配置" class="headerlink" title="1.3 Nginx 配置"></a>1.3 Nginx 配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">	......</div><div class="line"> listen 443 ssl;</div><div class="line"> ssl on;</div><div class="line"> ssl_certificate /etc/v2ray/v2ray.crt;</div><div class="line"> ssl_certificate_key /etc/v2ray/v2ray.key;</div><div class="line"> ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</div><div class="line"> ssl_ciphers HIGH:!aNULL:!MD5;</div><div class="line"> server_name mydomain.me;</div><div class="line"> location /ray &#123;</div><div class="line"> proxy_redirect off;</div><div class="line"> proxy_pass http://127.0.0.1:10000;#假设WebSocket监听在环回地址的10000端口上</div><div class="line"> proxy_http_version 1.1;</div><div class="line"> proxy_set_header Upgrade $http_upgrade;</div><div class="line"> proxy_set_header Connection &quot;upgrade&quot;;</div><div class="line"> proxy_set_header Host $http_host;</div><div class="line"> &#125;</div><div class="line">	......</div><div class="line">	//其余无关配置已省略</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="1-4-客户端配置"><a href="#1-4-客户端配置" class="headerlink" title="1.4 客户端配置"></a>1.4 客户端配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;inbound&quot;: &#123;</div><div class="line">        &quot;port&quot;: 1080,</div><div class="line">        &quot;listen&quot;: &quot;127.0.0.1&quot;,</div><div class="line">        &quot;protocol&quot;: &quot;socks&quot;,</div><div class="line">        &quot;settings&quot;: &#123;</div><div class="line">            &quot;auth&quot;: &quot;noauth&quot;,</div><div class="line">            &quot;udp&quot;: false</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    &quot;outbound&quot;: &#123;</div><div class="line">        &quot;protocol&quot;: &quot;vmess&quot;,</div><div class="line">        &quot;settings&quot;: &#123;</div><div class="line">            &quot;vnext&quot;: [</div><div class="line">                &#123;</div><div class="line">                    &quot;address&quot;: &quot;mydomain.me&quot;,</div><div class="line">                    &quot;port&quot;: 443,</div><div class="line">                    &quot;users&quot;: [</div><div class="line">                        &#123;</div><div class="line">                            &quot;id&quot;: &quot;b831381d-6324-4d53-ad4f-8cda48b30811&quot;,</div><div class="line">                            &quot;alterId&quot;: 64</div><div class="line">                        &#125;</div><div class="line">                    ]</div><div class="line">                &#125;</div><div class="line">            ]</div><div class="line">        &#125;,</div><div class="line">        &quot;streamSettings&quot;: &#123;</div><div class="line">            &quot;network&quot;: &quot;ws&quot;,</div><div class="line">            &quot;security&quot;: &quot;tls&quot;,</div><div class="line">            &quot;tlsSettings&quot;: &#123;</div><div class="line">                &quot;serverName&quot;: &quot;mydomain.me&quot;</div><div class="line">            &#125;,</div><div class="line">            &quot;wsSettings&quot;: &#123;</div><div class="line">                &quot;path&quot;: &quot;/ray&quot;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="2-完"><a href="#2-完" class="headerlink" title="2.完"></a>2.完</h1>
       
     </div>
 
@@ -400,7 +410,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/picture/" rel="tag"><i class="fa fa-tag"></i> picture</a>
+            <a href="/tags/v2ray/" rel="tag"><i class="fa fa-tag"></i> v2ray</a>
           
         </div>
       
@@ -413,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/24/EPEL/" rel="next" title="EPEL">
-                <i class="fa fa-chevron-left"></i> EPEL
+              <a href="/2018/01/16/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -422,10 +432,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/17/Bojack-Horseman-S03/" rel="prev" title="Bojack.Horseman-S03">
-                Bojack.Horseman-S03 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -479,8 +485,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars3.githubusercontent.com/u/9482683?v=4&u=ba6abd0b291e4ebd6c3593fd95438bbfbc6d4f1d&s=400"
@@ -553,6 +568,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-WebSocket-TLS-Web"><span class="nav-number">1.</span> <span class="nav-text">0.WebSocket+TLS+Web</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-配置"><span class="nav-number">2.</span> <span class="nav-text">1.配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-证书生成"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 证书生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-服务器配置"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 服务器配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Nginx-配置"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 Nginx 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-客户端配置"><span class="nav-number">2.4.</span> <span class="nav-text">1.4 客户端配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-完"><span class="nav-number">3.</span> <span class="nav-text">2.完</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -708,9 +739,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/09/17/Bojack-Horseman/';
-          this.page.identifier = '2017/09/17/Bojack-Horseman/';
-          this.page.title = 'Bojack.Horseman';
+          this.page.url = 'http://yoursite.com/2018/01/20/WebSocket-TLS-Web/';
+          this.page.identifier = '2018/01/20/WebSocket-TLS-Web/';
+          this.page.title = 'WebSocket+TLS+Web';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://ovels.disqus.com/embed.js';
