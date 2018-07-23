@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="RHEL/CentOS/Fedora各种源(EPEL,Remi,RPMForge,RPMFusion)配置 CentOS 默认自带 CentOS-Base.repo 源, 但官方源中去除了很多有版权争议的软件, 而且安装的软件也不是最新的稳定版.Fedora 自带的源中也找不到很多多媒体软件, 如果需要安装, 必需先添加其他源, 如 RPMFusion 和 RPMForge 等第三方软件库.下面我">
-<meta name="keywords" content="linux">
+<meta name="description" content="Base64转换步骤准备自己写一个base64 encode和decode的方法，首先说一下转换步骤，先以英文为例： 1，三个字符一组，获取字母的Ascii码。 2，把Ascii转成二进制，将得到的二进制连在一起，一共24位，分成6位一组（之前是8位一组），并且在前面加两个0。最后不足8位的在后面补0。 3，把新的二进制数字转成十进制，根据 base64对应的转换表得到对应的字符。 关键代码以下是">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="EPEL">
-<meta property="og:url" content="http://yoursite.com/2017/07/24/EPEL/index.html">
+<meta property="og:title" content="Base 64">
+<meta property="og:url" content="http://yoursite.com/2018/07/23/Base-64/index.html">
 <meta property="og:site_name" content="ovels">
-<meta property="og:description" content="RHEL/CentOS/Fedora各种源(EPEL,Remi,RPMForge,RPMFusion)配置 CentOS 默认自带 CentOS-Base.repo 源, 但官方源中去除了很多有版权争议的软件, 而且安装的软件也不是最新的稳定版.Fedora 自带的源中也找不到很多多媒体软件, 如果需要安装, 必需先添加其他源, 如 RPMFusion 和 RPMForge 等第三方软件库.下面我">
-<meta property="og:updated_time" content="2018-01-20T08:40:32.270Z">
+<meta property="og:description" content="Base64转换步骤准备自己写一个base64 encode和decode的方法，首先说一下转换步骤，先以英文为例： 1，三个字符一组，获取字母的Ascii码。 2，把Ascii转成二进制，将得到的二进制连在一起，一共24位，分成6位一组（之前是8位一组），并且在前面加两个0。最后不足8位的在后面补0。 3，把新的二进制数字转成十进制，根据 base64对应的转换表得到对应的字符。 关键代码以下是">
+<meta property="og:updated_time" content="2018-07-23T06:09:12.287Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="EPEL">
-<meta name="twitter:description" content="RHEL/CentOS/Fedora各种源(EPEL,Remi,RPMForge,RPMFusion)配置 CentOS 默认自带 CentOS-Base.repo 源, 但官方源中去除了很多有版权争议的软件, 而且安装的软件也不是最新的稳定版.Fedora 自带的源中也找不到很多多媒体软件, 如果需要安装, 必需先添加其他源, 如 RPMFusion 和 RPMForge 等第三方软件库.下面我">
+<meta name="twitter:title" content="Base 64">
+<meta name="twitter:description" content="Base64转换步骤准备自己写一个base64 encode和decode的方法，首先说一下转换步骤，先以英文为例： 1，三个字符一组，获取字母的Ascii码。 2，把Ascii转成二进制，将得到的二进制连在一起，一共24位，分成6位一组（之前是8位一组），并且在前面加两个0。最后不足8位的在后面补0。 3，把新的二进制数字转成十进制，根据 base64对应的转换表得到对应的字符。 关键代码以下是">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/24/EPEL/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/23/Base-64/"/>
 
 
 
 
 
-  <title>EPEL | ovels</title>
+  <title>Base 64 | ovels</title>
   
 
 
@@ -295,7 +295,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/EPEL/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/Base-64/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang">
@@ -312,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">EPEL</h1>
+          <h1 class="post-title" itemprop="name headline">Base 64</h1>
         
 
         <div class="post-meta">
@@ -324,8 +324,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T16:30:04+08:00">
-                2017-07-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T14:06:41+08:00">
+                2018-07-23
               </time>
             
 
@@ -343,9 +343,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/24/EPEL/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/23/Base-64/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/24/EPEL/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/23/Base-64/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -370,19 +370,185 @@
       
 
       
-        <p>RHEL/CentOS/Fedora各种源(EPEL,Remi,RPMForge,RPMFusion)配置</p>
-<p>CentOS 默认自带 CentOS-Base.repo 源, 但官方源中去除了很多有版权争议的软件, 而且安装的软件也不是最新的稳定版.<br>Fedora 自带的源中也找不到很多多媒体软件, 如果需要安装, 必需先添加其他源, 如 RPMFusion 和 RPMForge 等第三方软件库.<br>下面我们介绍各种第三方软件库, 以下软件库适用于与 RHEL 完全兼容的 Linux 发行版, 如 CentOS, Fedora, Scientific Linux. Scientific Linux 大家可能有点陌生, 它与 CentOS 类似, 是 RedHat Linux 的克隆版.<br>yum –enablerepo=rpmforge info aria2<br>yum –enablerepo=rpmforge install aria2<br> <a id="more"></a><br>1、EPEL源<br>EPEL, 即 Extra Packages for Enterprise Linux, 是由 Fedora 社区创建维护, 为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供高质量软件包的项目.<br>EPEL中含有大量的软件, 对官方标准源是一个很好的补充。<br>“EPEL (Extra Packages for Enterprise Linux ) is a Fedora Special Interest Group that creates, maintains, and manages a high quality set of additional packages for Enterprise Linux, including, but not limited to, Red Hat Enterprise Linux (RHEL), CentOS and Scientific Linux (SL).”<br>wiki: <a href="http://fedoraproject.org/wiki/EPEL" target="_blank" rel="external">http://fedoraproject.org/wiki/EPEL</a><br>Fedora EPEL 下载：<a href="http://mirrors.fedoraproject.org/publiclist/EPEL/" target="_blank" rel="external">http://mirrors.fedoraproject.org/publiclist/EPEL/</a><br>EPEL 下载地址：<a href="http://download.fedora.redhat.com/pub/epel/" target="_blank" rel="external">http://download.fedora.redhat.com/pub/epel/</a><br>请针对不同的版本下载相应的包.<br>例如 CentOS7 添加阿里云的EPEL源<br>yum localinstall –nogpgcheck <a href="http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm" target="_blank" rel="external">http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</a><br>或者<br>rpm -vih <a href="http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm" target="_blank" rel="external">http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm</a><br>或者<br>wget <a href="http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm" target="_blank" rel="external">http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm</a><br>rpm -vih epel-release-7-2.noarch.rpm</p>
-<p>2、Remi源<br>Remi 源大家或许很少听说， 但是我们强烈推荐, 尤其对于不想编译最新版的 linux 使用者, 因为 Remi 源中的软件几乎都是最新稳定版.<br>或许您会怀疑稳定不?<br>放心吧, 这些都是 Linux 骨灰级的玩家编译好放进源里的, 他们对于系统环境和软件编译参数的熟悉程度毋庸置疑.<br>Remi下载地址 : <a href="http://rpms.famillecollet.com/" target="_blank" rel="external">http://rpms.famillecollet.com/</a><br>您也需要针对不同的版本号下载.<br>例如 CentOS 7添加官方的 Remi 源<br>yum localinstall –nogpgcheck <a href="http://rpms.famillecollet.com/enterprise/remi-release-7.rpm" target="_blank" rel="external">http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</a><br>或者<br>rpm -ivh <a href="http://rpms.famillecollet.com/enterprise/remi-release-7.rpm" target="_blank" rel="external">http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</a><br>或者<br>wget <a href="http://rpms.famillecollet.com/enterprise/remi-release-7.rpm" target="_blank" rel="external">http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</a><br>rpm -ivh remi-release-7.rp</p>
-<p>3、RPMForge源<br>RPMForge 是 CentOS 系统下的软件仓库， 拥有 4000 多种的软件包, 被 CentOS 社区认为是最安全也是最稳定的一个软件仓库.<br>RPMForge官方网站: <a href="http://repoforge.org/" target="_blank" rel="external">http://repoforge.org/</a><br>Github: <a href="https://github.com/repoforge" target="_blank" rel="external">https://github.com/repoforge</a><br>RPMForge下载地址：<a href="http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/" target="_blank" rel="external">http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/</a><br>例如CentOS6.5添加官方的RPMForge源<br>yum localinstall –nogpgcheck <a href="http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm" target="_blank" rel="external">http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm</a><br>CentOS 7.0添加官方的RPMForge源<br>yum localinstall –nogpgcheck <a href="http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm" target="_blank" rel="external">http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm</a><br>或者<br>rpm -ivh <a href="http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm" target="_blank" rel="external">http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm</a><br>或者<br>wget <a href="http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm" target="_blank" rel="external">http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm</a><br>rpm -ivh rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm</p>
-<p>4、RPMFusion源<br>如果您现在正在使用Fedora 15， 对 RPMFusion一定不陌生吧， 各种音频软件如 MPlayer 在标准源中是没有的， 一般先安装 RPMFusion源, 之后就可以放便地 yum install 各种需要的软件啦。<br>CentOS 官方说 RPMFusion 软件库里面的软件稳定性不如rpmforge<br>RPMFusion 官网 : <a href="http://rpmfusion.org/" target="_blank" rel="external">http://rpmfusion.org/</a><br>包下载 <a href="http://download1.rpmfusion.org" target="_blank" rel="external">http://download1.rpmfusion.org</a><br>包括两个包, free 和 non_free<br>注意 : 在安装 RPMFusion源之前需要先安装 epel-release</p>
-<p>#FREE<br>yum localinstall <a href="http://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm" target="_blank" rel="external">http://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm</a></p>
-<p>#NON_FREE<br>yum localinstall <a href="http://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm" target="_blank" rel="external">http://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm</a><br>或者</p>
-<p>#FREE<br>rpm -ivh <a href="http://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm" target="_blank" rel="external">http://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm</a></p>
-<p>#NONFREE<br>rpm -ivh <a href="http://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm" target="_blank" rel="external">http://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm</a><br>或者</p>
-<p>#FREE<br>wget <a href="http://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm" target="_blank" rel="external">http://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm</a><br>rpm -ivh rpmfusion-free-release-7.noarch.rpm</p>
-<p>#NON_FREE<br>wget <a href="http://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm" target="_blank" rel="external">http://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm</a><br>rpm -ivh rpmfusion-nonfree-release-7.noarch.rpm<br>其他版本请详见 : <a href="http://rpmfusion.org/Configuration" target="_blank" rel="external">http://rpmfusion.org/Configuration</a></p>
-<p>5、为各种源添加优先级别<br>以上源对 CentOS 等系统完全兼容, 但各软件库之间并不能保证完全兼容没有冲突.<br>5.1、安装yum-priorities`插件<br>如果您需要使用以上源, 您需要安装 yum-priorities插件<br>yum install yum-plugin-priorities<br>安装完后查看配置信息<br>vim /etc/yum/pluginconf.d/priorities.conf<br>enabled = 1（可用）/0（不可用）<br>5.2、设置源的优先级<br>安装 yum-priorities 插件后, 您可以给各个源设置优先级priority.<br>一般设置官方标准源优先级为 1, 最高, 第三方推荐 &gt;10<br>编辑 /etc/yum.repos.d/目录下的*.repo 文件来设置优先级。<br>参数为：<br>priority=N   # N的值为1-99<br>数字越低优先级越高，数字越大优先级越低，安装包选择优先级高的开始安装。<br>推荐的设置为：<br>[base], [addons], [updates], [extras] … priority=1<br>[centosplus],[contrib] … priority=2<br>Third Party Repos such as rpmforge … priority=N   (where N is &gt; 10 and based on your preference)<br>5.3、解决冲突<br>特殊情况 : 但在不同优先级的源中都含有同一个包时, 它的行为可能就不是我们所需要的.<br>例如, 在 base 源中有个包 : abc-2.2.0.x86_64.rpm, base 是最高优先级. 在其他的优先级中也有许多 abc 包, 如果你想安装 abc-2.1.0-x86_64.rpm, 通过命令<br>yum install abc-2.1.0<br>就会出现下面的提示<br>xx packages excluded due to repository priority protections<br>并且找不到所需要的包，这是因为在高优先级源中存在的包，会将其他低优先级中的包屏蔽掉，因此无法从低优先级的源中安装所需要的包。<br>修改priorities的配置文件是/etc/yum/pluginconf.d/priorities.conf<br>其内容为:<br>[main]<br>enabled=0   # 0禁用 1启用<br>默认是1;设置enabled = 0, 这样就可以禁用priorities插&gt;件。从而能够安装任意源上的包。</p>
+        <h1 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h1><h1 id="转换步骤"><a href="#转换步骤" class="headerlink" title="转换步骤"></a>转换步骤</h1><p>准备自己写一个base64 encode和decode的方法，首先说一下转换步骤，先以英文为例：</p>
+<p>1，三个字符一组，获取字母的Ascii码。</p>
+<p>2，把Ascii转成二进制，将得到的二进制连在一起，一共24位，分成6位一组（之前是8位一组），并且在前面加两个0。最后不足8位的在后面补0。</p>
+<p>3，把新的二进制数字转成十进制，根据 base64对应的转换表得到对应的字符。</p>
+<h1 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h1><p>以下是关键代码，并不是完整代码</p>
+<p>1，获取Ascii码</p>
+<pre><code>String s=&quot;asdfdfdfdsfafdgsdfasf123435&quot;;
+char[] cs=s.toCharArray();
+for(int i:cs){
+    System.out.println(i);
+}
+</code></pre><p>2，十进制数字转二进制</p>
+<pre><code>Integer.toBinaryString(int i)
+</code></pre><p>3，截取前6位</p>
+<pre><code>substring(0,6);
+</code></pre><p>4，二进制转十进制</p>
+<pre><code>Integer.valueOf(&quot;0101&quot;,2).toString()
+</code></pre><p>5，根据以下对照表转换</p>
+<pre><code>     0　A　　17　R　　　34　i　　　51　z
 
+　　1　B　　18　S　　　35　j　　　52　0
+
+　　2　C　　19　T　　　36　k　　　53　1
+
+　　3　D　　20　U　　　37　l　　　54　2
+
+　　4　E　　21　V　　　38　m　　　55　3
+
+　　5　F　　22　W　　　39　n　　　56　4
+
+　　6　G　　23　X　　　40　o　　　57　5
+
+　　7　H　　24　Y　　　41　p　　　58　6
+
+　　8　I　　　25　Z　　　42　q　　　59　7
+
+　　9　J　　26　a　　　43　r　　　60　8
+
+　　10　K　　27　b　　　44　s　　　61　9
+
+　　11　L　　28　c　　　45　t　　　62　+
+
+　　12　M　　29　d　　　46　u　　　63　/
+
+　　13　N　　30　e　　　47　v
+
+　　14　O　　31　f　　　48　w　　　
+
+　　15　P　　32　g　　　49　x
+
+　　16　Q　　33　h　　　50　y
+
+private static final char[] toBase64 = {
+            &apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;, &apos;E&apos;, &apos;F&apos;, &apos;G&apos;, &apos;H&apos;, &apos;I&apos;, &apos;J&apos;, &apos;K&apos;, &apos;L&apos;, &apos;M&apos;,
+            &apos;N&apos;, &apos;O&apos;, &apos;P&apos;, &apos;Q&apos;, &apos;R&apos;, &apos;S&apos;, &apos;T&apos;, &apos;U&apos;, &apos;V&apos;, &apos;W&apos;, &apos;X&apos;, &apos;Y&apos;, &apos;Z&apos;,
+            &apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;, &apos;f&apos;, &apos;g&apos;, &apos;h&apos;, &apos;i&apos;, &apos;j&apos;, &apos;k&apos;, &apos;l&apos;, &apos;m&apos;,
+            &apos;n&apos;, &apos;o&apos;, &apos;p&apos;, &apos;q&apos;, &apos;r&apos;, &apos;s&apos;, &apos;t&apos;, &apos;u&apos;, &apos;v&apos;, &apos;w&apos;, &apos;x&apos;, &apos;y&apos;, &apos;z&apos;,
+            &apos;0&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;, &apos;5&apos;, &apos;6&apos;, &apos;7&apos;, &apos;8&apos;, &apos;9&apos;, &apos;+&apos;, &apos;/&apos;
+        };
+</code></pre><p>具体代码：</p>
+<pre><code>import java.util.ArrayList;
+
+public class Base64 {
+
+    public static String DECODE = &quot;decode&quot;;
+    public static String ENCODE = &quot;encode&quot;;
+
+    /**
+     * 字符串长度
+     */
+    private static int len;
+
+    public String code(String str, String type) {
+        len = str.length();
+        getBinary(str);
+        if (type == DECODE) {
+            return deCode();
+        } else if (type == ENCODE) {
+            return enCode();
+        }
+        return &quot;error&quot;;
+    }
+
+    private String enCode() {
+
+        return &quot;&quot;;
+    }
+
+    private String deCode() {
+
+        return &quot;&quot;;
+    }
+
+    private ArrayList binary = new ArrayList();
+
+    /**
+     * 获取Ascii转换后的二进制List
+     * 
+     * @param s
+     * @return
+     */
+    private ArrayList getBinary(String s) {
+
+        s = &quot;asdfdfdfdsfafdgsdfasf123435&quot;;
+        char[] cs = s.toCharArray();
+        for (int i : cs) {
+            binary.add(d2b(i));
+            System.out.println(i);
+        }
+        return binary;
+    }
+
+    /**
+     * 十进制转二进制
+     * 
+     * @return
+     */
+    private String d2b(int i) {
+        return Integer.toBinaryString(i);
+    }
+
+    /**
+     * 二进制转十进制
+     * 
+     * @return
+     */
+    private String b2d(String s) {
+        return Integer.valueOf(String.valueOf(s), 2).toString();
+    }
+
+    /**
+     * 拼接字符串
+     */
+    private String appendString(ArrayList list) {
+        StringBuilder sb = new StringBuilder();
+
+        for (Object o : list) {
+            sb.append(o.toString());
+        }
+        return sb.toString();
+
+    }
+
+    /**
+     * 截取字符串
+     * 
+     * @param s
+     * @param begin
+     * @param end
+     */
+    private String subString(String s, int begin, int end) {
+        return s.substring(begin, end);
+    }
+
+    private ArrayList&lt;String&gt; aList = new ArrayList&lt;&gt;();
+    /**
+     * 把获取到的二进制数据截取成6位一组，并转成十进制
+     */
+    private void c() {
+        String binaryString;
+        char c;
+        String s;
+        binaryString = appendString(binary);
+        for (int i = 6; i &lt; binaryString.length() - 6; i += 6) {
+            c = toBase64[Integer.valueOf(b2d(subString(binaryString, i-6, i)))];
+            s = String.valueOf(c);
+            aList.add(s);
+        }
+    }
+
+    private static final char[] toBase64 = {
+            &apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;, &apos;E&apos;, &apos;F&apos;, &apos;G&apos;, &apos;H&apos;, &apos;I&apos;, &apos;J&apos;, &apos;K&apos;, &apos;L&apos;, &apos;M&apos;,
+            &apos;N&apos;, &apos;O&apos;, &apos;P&apos;, &apos;Q&apos;, &apos;R&apos;, &apos;S&apos;, &apos;T&apos;, &apos;U&apos;, &apos;V&apos;, &apos;W&apos;, &apos;X&apos;, &apos;Y&apos;, &apos;Z&apos;,
+            &apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;, &apos;f&apos;, &apos;g&apos;, &apos;h&apos;, &apos;i&apos;, &apos;j&apos;, &apos;k&apos;, &apos;l&apos;, &apos;m&apos;,
+            &apos;n&apos;, &apos;o&apos;, &apos;p&apos;, &apos;q&apos;, &apos;r&apos;, &apos;s&apos;, &apos;t&apos;, &apos;u&apos;, &apos;v&apos;, &apos;w&apos;, &apos;x&apos;, &apos;y&apos;, &apos;z&apos;,
+            &apos;0&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;, &apos;5&apos;, &apos;6&apos;, &apos;7&apos;, &apos;8&apos;, &apos;9&apos;, &apos;+&apos;, &apos;/&apos;
+        };
+}
+</code></pre>
       
     </div>
 
@@ -411,7 +577,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           
         </div>
       
@@ -424,8 +590,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/13/HearthStone/" rel="next" title="HearthStone">
-                <i class="fa fa-chevron-left"></i> HearthStone
+              <a href="/2018/01/20/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -433,10 +599,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/17/Bojack-Horseman/" rel="prev" title="Bojack.Horseman">
-                Bojack.Horseman <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -490,8 +652,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars3.githubusercontent.com/u/9482683?v=4&u=ba6abd0b291e4ebd6c3593fd95438bbfbc6d4f1d&s=400"
@@ -564,6 +735,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Base64"><span class="nav-number">1.</span> <span class="nav-text">Base64</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#转换步骤"><span class="nav-number">2.</span> <span class="nav-text">转换步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关键代码"><span class="nav-number">3.</span> <span class="nav-text">关键代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -719,9 +906,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/07/24/EPEL/';
-          this.page.identifier = '2017/07/24/EPEL/';
-          this.page.title = 'EPEL';
+          this.page.url = 'http://yoursite.com/2018/07/23/Base-64/';
+          this.page.identifier = '2018/07/23/Base-64/';
+          this.page.title = 'Base 64';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://ovels.disqus.com/embed.js';
